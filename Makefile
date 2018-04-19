@@ -11,3 +11,5 @@ test:
 	docker build -t test-image:hw-low-level .
     # Run `tox` on the image. Automatically remove the container when it exits
 	docker run -v "$(shell pwd)/reports":/reports --rm -t test-image:hw-low-level tox
+	# Clean dangling images that result from code changes
+	docker images -f dangling=true -q |xargs docker rmi

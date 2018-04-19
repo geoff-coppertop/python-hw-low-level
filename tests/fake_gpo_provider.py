@@ -8,16 +8,11 @@
 # 2018
 #-------------------------------------------------------------------------------
 
-import logging
-from hw_low_level.gpio.gpo_provider import GPOProvider
-
-class FakeGPOProvider(GPOProvider):
+class FakeGPOProvider(object):
     """GPO provider test double"""
 
     def __init__(self):
         """Create a GPO provider test double"""
-        self.__logger = logging.getLogger('fake_gpo_provider')
-
         self.__is_enabled = False
 
     def enable(self):
