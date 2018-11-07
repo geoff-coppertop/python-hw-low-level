@@ -26,7 +26,7 @@ class PWMProviderPCA9685(PWMProvider):
 
         Uses a PCA9685 device and the desired pin on that device
         """
-        self.__logger = logging.getLogger('hw.pwm.pwm-provider-pca9685')
+        self.__logger = logging.getLogger(__name__)
         self.__dev = device
         self.__pin = pin
 

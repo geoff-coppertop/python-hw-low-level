@@ -20,7 +20,7 @@ class FakePWMProvider(PWMProvider):
     def __init__(self):
         """
         """
-        self.__logger = logging.getLogger('fake_pwm_provider')
+        self.__logger = logging.getLogger(__name__)
         self.__freq = 0
         self.__duty = 0
         self.__on_count = 0

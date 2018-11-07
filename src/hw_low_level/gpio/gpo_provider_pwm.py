@@ -19,7 +19,7 @@ class GPOProviderPWM(GPOProvider):
     def __init__(self, pwm_provider):
         """Create a GPO provider that uses a PWM provider for output generation
         """
-        self.__logger = logging.getLogger('gpo_provider_pwm')
+        self.__logger = logging.getLogger(__name__)
 
         self.__pwm = pwm_provider
         self.__pwm.turn_off()

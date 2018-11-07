@@ -14,7 +14,7 @@ import logging
 class PWMProvider(object):
     def __init__(self, min_freq, max_freq, min_duty=0, max_duty=100):
         """Create a PWM provider"""
-        self.__logger = logging.getLogger('hw.pwm.pwm-provider')
+        self.__logger = logging.getLogger(__name__)
         self._duty = 0
         self._min_duty = min_duty
         self._max_duty = max_duty

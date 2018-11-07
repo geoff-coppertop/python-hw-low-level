@@ -48,22 +48,23 @@ def test_servo_angle(servo, pwm_provider, angle):
     assert(pwm_provider.get_duty() <= 10)
 
 def test_servo_repeat_angle(servo, pwm_provider):
-    """Check that repeated requests for the same angle caus the output to be turned on"""
+    """Check that repeated requests for the same angle cause the output to be turned off"""
 
     # Set angle will assert an error if an invalid angle is requested
     servo.set_angle(90)
 
     # Check that the output was turned on
     assert(pwm_provider.get_on_count() == 1)
+    assert(pwm_provider.output_enabled())
 
     # Set an in range angle
     servo.set_angle(90)
 
-    # Check that the output was turned on again
-    assert(pwm_provider.get_on_count() == 2)
+    # Output should now be off
+    assert(not pwm_provider.output_enabled())
 
 def test_servo_signal_generation(servo, pwm_provider):
-    """Check that the PWM signal goes off-on-off on angle request"""
+    """Check that the PWM signal goes off-on on angle request"""
 
     # Check that output starts turned off
     assert(not pwm_provider.output_enabled())
@@ -75,7 +76,7 @@ def test_servo_signal_generation(servo, pwm_provider):
     servo.set_angle(90)
 
     # Check that output is again off
-    assert(not pwm_provider.output_enabled())
+    assert(pwm_provider.output_enabled())
 
     # Check that the output has been turned on
     assert(pwm_provider.get_on_count() == 1)

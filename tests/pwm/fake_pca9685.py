@@ -17,7 +17,7 @@ class FakePCA9685(object):
     def __init__(self):
         """
         """
-        self.__logger = logging.getLogger('fake_pca9685')
+        self.__logger = logging.getLogger(__name__)
         self.__freq = 0
         self.__duty = 0
 
