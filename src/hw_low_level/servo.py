@@ -61,5 +61,5 @@ class Servo(object):
 
     def get_angle(self):
         '''Return the current servo angle'''
-        return self.__angle()
+        return self.__angle
 
