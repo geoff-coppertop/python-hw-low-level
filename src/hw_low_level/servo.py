@@ -38,11 +38,9 @@ class Servo(object):
         if self.__angle != angle:
             # Calculate the duty cycle as a percentage
             # 50Hz => 20ms
-            # 1ms => 0deg => 5%
-            # 2ms => 180deg => 10%
-            # duty = angle/180deg * (1ms * 50Hz / 1000) + (1ms * 50Hz / 1000)
-            # duty = (1ms * 50Hz / 1000) * (1 + angle/180deg)
-            duty = 5 * (1 + (angle / 180))
+            # 0.5ms => 0deg => 2.5%
+            # 2.5ms => 180deg => 12.5%
+            duty = (2.5 + (angle / 18))
 
             # Set the desired position
             self.__pwm.set_duty(duty)

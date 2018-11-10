@@ -43,19 +43,19 @@ class PWMProviderPCA9685(PWMProvider):
 
         Duty cycle is expressed as a percentage.
         """
-        self.__logger.info('Requested duty: %d', duty)
+        self.__logger.debug('Requested duty: %d', duty)
 
         # TODO: these checks should probably be moved to the base class
         # Check that the duty cycle requested is valid
         assert(duty >= self._min_duty)
         assert(duty <= self._max_duty)
 
-        self.__logger.info('Limited duty: %d', duty)
+        self.__logger.debug('Limited duty: %d', duty)
 
         # Scale duty to send it to the PCA9685
         duty = int(duty * 0x0FFF / 100)
 
-        self.__logger.info('Scaled duty: %d', duty)
+        self.__logger.debug('Scaled duty: %d', duty)
 
         PWMProvider.set_duty(self, duty)
 
@@ -64,8 +64,8 @@ class PWMProviderPCA9685(PWMProvider):
 
         For the PCA9685 this affects all pins simulatneously.
         """
-        self.__logger.info('Current freq: %d', self.__dev.get_pwm_frequency())
-        self.__logger.info('Requested freq: %d', freq)
+        self.__logger.debug('Current freq: %d', self.__dev.get_pwm_frequency())
+        self.__logger.debug('Requested freq: %d', freq)
 
         # TODO: these checks should probably be moved to the base class
         # Check that the freq requested is valid

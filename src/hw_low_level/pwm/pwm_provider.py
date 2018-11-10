@@ -23,7 +23,7 @@ class PWMProvider(object):
 
     def set_duty(self, duty):
         """Set the duty cycle of the PWM provider"""
-        self.__logger.info('Duty Cycle: %d', duty)
+        self.__logger.debug('Duty Cycle: %d', duty)
         self._duty = duty
 
     def set_freq(self, freq):
